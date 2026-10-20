@@ -21,7 +21,7 @@
   var viewerOrigin = document.getElementById("viewer-origin");
   var viewerStatus = document.getElementById("viewer-status");
   var closeButton = document.getElementById("viewer-close");
-  var nav = document.querySelector(".topnav");
+  var nav = document.querySelector(".rail");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var cache = {};
   var openId = "";
@@ -62,25 +62,6 @@
     }, { rootMargin: "-30% 0px -55% 0px", threshold: [0.15, 0.4, 0.7] });
     sections.forEach(function (section) { spy.observe(section); });
 
-    if (!reduced) {
-      var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-in");
-          revealObserver.unobserve(entry.target);
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(function (el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92) {
-          el.classList.add("is-in");
-        } else {
-          el.classList.add("will-reveal");
-          revealObserver.observe(el);
-        }
-      });
-    }
   }
 
   function setStatus(message) {
@@ -181,7 +162,7 @@
     openId = "";
     opening = false;
     lockPage(false);
-    document.title = "余佳欣 · 简历";
+    document.title = "余佳欣 · 新媒体编辑";
     if (lastFocus && lastFocus.focus) lastFocus.focus();
     if (!fromPop && location.hash.indexOf("#work-") === 0) history.back();
   }

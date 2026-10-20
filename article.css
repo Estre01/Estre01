@@ -1,9 +1,10 @@
 :root {
-  --paper: #f3efe6;
-  --ink: #1c1915;
-  --muted: #5c564c;
-  --seal: #8e2f26;
-  --line: #ddd4c4;
+  --paper: #f3ecdf;
+  --ink: #1c1712;
+  --muted: #5e564c;
+  --seal: #7a241c;
+  --line: rgba(28, 23, 18, 0.16);
+  --serif: "Songti SC", "STSong", "Noto Serif SC", "PMingLiU", "SimSun", serif;
   --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
 }
 
@@ -23,28 +24,31 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 12px 20px;
-  background: rgba(243, 239, 230, 0.94);
+  min-height: 56px;
+  padding: 10px 20px;
+  background: rgba(243, 236, 223, 0.94);
   border-bottom: 1px solid var(--line);
 }
 
 .top a {
   color: var(--seal);
+  font-size: 14px;
   text-underline-offset: 3px;
 }
 
 .meta {
   margin: 0 auto;
-  color: var(--muted);
-  font-size: 14px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
 }
 
 .wx {
-  max-width: 677px;
+  max-width: 720px;
   margin: 28px auto 72px;
   padding: 12px 16px 40px;
   background: #fff;
-  box-shadow: 0 0 0 1px var(--line);
+  border: 1px solid var(--line);
   overflow-x: auto;
   font-size: 17px;
   line-height: 1.75;
@@ -56,14 +60,10 @@ body {
   height: auto !important;
 }
 
-.wx section {
-  max-width: 100%;
-}
+.wx section { max-width: 100%; }
 
 mp-style-type,
-mp-common-profile {
-  display: none;
-}
+mp-common-profile { display: none; }
 
 :focus-visible {
   outline: 2px solid var(--seal);
@@ -73,5 +73,5 @@ mp-common-profile {
 @media (max-width: 720px) {
   .top { gap: 10px; padding: 10px 14px; }
   .meta { font-size: 13px; }
-  .wx { margin: 0 auto 48px; box-shadow: none; }
+  .wx { margin: 16px auto 48px; }
 }
