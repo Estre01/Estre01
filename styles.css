@@ -544,8 +544,6 @@ section[id] { scroll-margin-top: 7rem; }
 .contact-primary:hover { color: var(--seal); }
 
 .contact-mail {
-  font-family: var(--sans);
-  font-size: clamp(1.15rem, 4vw, 1.55rem);
   overflow-wrap: anywhere;
 }
 
