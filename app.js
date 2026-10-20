@@ -28,10 +28,6 @@
   var lastFocus = null;
   var opening = false;
 
-  document.getElementById("print").addEventListener("click", function () {
-    window.print();
-  });
-
   window.addEventListener("scroll", function () {
     nav.classList.toggle("is-scrolled", window.scrollY > 8);
   }, { passive: true });

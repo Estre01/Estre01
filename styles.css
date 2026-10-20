@@ -58,13 +58,9 @@ a:visited { color: var(--seal); }
   position: sticky;
   top: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "brand actions"
-    "nav nav";
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  column-gap: 12px;
   width: 100%;
   max-width: 100%;
   padding: 10px 16px 0;
@@ -78,7 +74,6 @@ a:visited { color: var(--seal); }
 
 .brand {
   display: flex;
-  grid-area: brand;
   align-items: center;
   gap: 10px;
   min-width: 0;
@@ -128,7 +123,7 @@ a:visited { color: var(--seal); }
 
 .nav-links {
   display: flex;
-  grid-area: nav;
+  width: 100%;
   min-width: 0;
   gap: 2px;
   margin-top: 2px;
@@ -155,34 +150,6 @@ a:visited { color: var(--seal); }
   border-bottom-color: var(--seal);
   color: var(--seal);
 }
-
-.rail-foot {
-  display: flex;
-  grid-area: actions;
-  gap: 12px;
-  align-items: center;
-  padding-bottom: 8px;
-}
-
-.label-short { display: none; }
-
-.rail-foot a,
-.rail-foot button {
-  border: 0;
-  background: none;
-  padding: 8px 0;
-  color: var(--muted);
-  font: inherit;
-  font-size: 13px;
-  text-align: left;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-
-.rail-foot a:visited { color: var(--muted); }
-.rail-foot a:hover,
-.rail-foot button:hover { color: var(--seal); }
 
 .shell {
   width: min(1080px, 100%);
@@ -582,16 +549,6 @@ section[id] { scroll-margin-top: 7rem; }
   overflow-wrap: anywhere;
 }
 
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin-top: 22px;
-  padding: 0;
-  list-style: none;
-  font-size: 15px;
-}
-
 .footer {
   margin-top: 72px;
   padding: 0 0 36px;
@@ -742,8 +699,6 @@ mp-common-profile { display: none; }
 }
 
 @media (max-width: 1039px) {
-  .label-long { display: none; }
-  .label-short { display: inline; }
   .brand-role { display: none; }
 }
 
@@ -837,15 +792,6 @@ mp-common-profile { display: none; }
   .nav-links a[aria-current="true"] {
     border-bottom-color: transparent;
     border-left-color: var(--seal);
-  }
-
-  .rail-foot {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    margin-top: auto;
-    margin-left: 0;
-    padding: 24px 0 0;
   }
 
   .shell {
