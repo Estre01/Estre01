@@ -394,24 +394,24 @@ section[id] { scroll-margin-top: 7rem; }
   font-size: 13px;
 }
 
-.story {
+.stories {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
+  gap: 36px;
+  align-items: stretch;
 }
 
-.story-lead {
-  padding-top: 0;
-  border-top: 0;
+.story {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
 }
-
-.story + .story { margin-top: 22px; }
 
 .story-visual {
   display: block;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
   background: var(--mat);
   color: inherit;
 }
@@ -419,8 +419,16 @@ section[id] { scroll-margin-top: 7rem; }
 .story-visual img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+.story-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 14px;
 }
 
 .story h3 {
@@ -428,11 +436,9 @@ section[id] { scroll-margin-top: 7rem; }
   font-family: var(--serif);
   font-weight: 400;
   font-synthesis: none;
-  font-size: 1.45rem;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
   line-height: 1.35;
 }
-
-.story-lead h3 { font-size: clamp(1.65rem, 4vw, 2.1rem); }
 
 .story h3 a { color: inherit; text-decoration: none; }
 .story h3 a:visited { color: inherit; }
@@ -448,7 +454,8 @@ section[id] { scroll-margin-top: 7rem; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px 18px;
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
   font-size: 14px;
 }
 
@@ -764,24 +771,9 @@ mp-common-profile { display: none; }
 
   .sec-note { grid-column: auto; }
 
-  .story-lead {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .story-lead .story-visual { height: 100%; min-height: 340px; }
-
-  .story-lead .story-visual img {
-    height: 100%;
-    min-height: 340px;
-    aspect-ratio: auto;
-  }
-
-  .story:not(.story-lead) {
-    grid-template-columns: 220px minmax(0, 1fr);
-    gap: 22px;
-    align-items: center;
+  .stories {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 28px;
   }
 
   .role {
